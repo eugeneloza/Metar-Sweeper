@@ -38,21 +38,11 @@ type
     Image2: TImage;
     Label1: TLabel;
     Label2: TLabel;
-    Panel1: TPanel;
-    Panel2: TPanel;
     timer1: ttimer;
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
-    procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
-    procedure FormMouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure Panel1Click(Sender: TObject);
-    procedure Panel2Click(Sender: TObject);
-
   private
     procedure changeme(Sender:TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure onmytimer(Sender: TObject);
@@ -158,8 +148,11 @@ begin
     end;
   form1.endFormUpdate;
   {$IFDEF UNIX}form1.BorderStyle:=bsnone;{$ENDIF}
-  form1.width:=cellsize*maxx+2;
-  form1.height:=cellsize*maxy+button1.height+4+image1.height+3;
+form1.ClientWidth:=cellsize*maxx+2;
+form1.clientheight:=cellsize*maxy+button1.height+4+image1.height+3;
+form1.width:=form1.ClientWidth;
+form1.height:=form1.clientheight;
+form1.resize;
   {$IFDEF UNIX}form1.BorderStyle:=bssingle;{$ENDIF}
  end else if gamemode=gamemode_game then begin
    // 'give up'
@@ -210,6 +203,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 var ix,iy:integer;
 begin
   mousedownkey:=false;
+  form1.DoubleBuffered:=true;
   gamemode:=gamemode_none;
   form2visible:=false;
   for ix:=1 to maxmaxx do
@@ -220,40 +214,6 @@ begin
   timer1.ontimer:=@onmytimer;
 //  timer1.parent:=form1;
   timer1.enabled:=false;
-end;
-
-procedure TForm1.FormMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-  mousedownkey:=true;
-  movex:=x;
-  movey:=y;
-end;
-
-procedure TForm1.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
-begin
-  if mousedownkey then begin
-    left:=left+x-movex;
-    top:=top+y-movey;
-  end;
-end;
-
-procedure TForm1.FormMouseUp(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-  mousedownkey:=false;
-end;
-
-procedure TForm1.Panel1Click(Sender: TObject);
-begin
-  form1.close;
-end;
-
-procedure TForm1.Panel2Click(Sender: TObject);
-begin
-  Form1.WindowState := wsMinimized;
-  form2.hide;
 end;
 
 procedure Tform1.onmytimer(Sender: TObject);

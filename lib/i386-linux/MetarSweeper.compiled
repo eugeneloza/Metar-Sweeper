@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1397985295"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -vewnhi -Fi/media/data/dat/doc/Dropbox/MetarSweeper_150212-2/lib/i386-linux -Fl/opt/gnome/lib -Fu/usr/share/lazarus/1.2.6/lcl/units/i386-linux/gtk2 -Fu/usr/share/lazarus/1.2.6/lcl/units/i386-linux -Fu/usr/share/lazarus/1.2.6/components/lazutils/lib/i386-linux -Fu/usr/share/lazarus/1.2.6/packager/units/i386-linux -Fu/media/data/dat/doc/Dropbox/MetarSweeper_150212-2/ -FU/media/data/dat/doc/Dropbox/MetarSweeper_150212-2/lib/i386-linux/ -l -dLCL -dLCLgtk2 MetarSweeper.lpr"/>
+</CONFIG>

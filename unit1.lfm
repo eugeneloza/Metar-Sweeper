@@ -3,13 +3,14 @@ object Form1: TForm1
   Height = 143
   Top = 226
   Width = 178
+  Anchors = []
   BorderStyle = bsSingle
   Caption = 'MetarSweeper'
   ClientHeight = 143
   ClientWidth = 178
   OnClose = FormClose
   OnCreate = FormCreate
-  LCLVersion = '1.2.4.0'
+  LCLVersion = '1.2.6.0'
   object Button1: TButton
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -17,7 +18,6 @@ object Form1: TForm1
     Height = 25
     Top = 2
     Width = 59
-    Align = alCustom
     BorderSpacing.Left = 2
     BorderSpacing.Top = 2
     Caption = 'NEW'
@@ -28,8 +28,9 @@ object Form1: TForm1
     AnchorSideLeft.Control = Button1
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Panel2
-    Left = 65
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 101
     Height = 25
     Top = 2
     Width = 75
@@ -45,11 +46,12 @@ object Form1: TForm1
     AnchorSideLeft.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 0
+    Left = 2
     Height = 23
     Top = 119
     Width = 21
     Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 2
     BorderSpacing.Bottom = 1
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963E904000089504E47
@@ -100,11 +102,12 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 158
+    Left = 156
     Height = 20
     Top = 121
     Width = 20
     Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 2
     BorderSpacing.Bottom = 2
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963BC04000089504E47
@@ -153,7 +156,7 @@ object Form1: TForm1
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Image1
     AnchorSideTop.Side = asrCenter
-    Left = 25
+    Left = 27
     Height = 15
     Top = 123
     Width = 23
@@ -165,7 +168,7 @@ object Form1: TForm1
     AnchorSideTop.Control = Image1
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Image2
-    Left = 131
+    Left = 129
     Height = 15
     Top = 123
     Width = 23
@@ -173,39 +176,6 @@ object Form1: TForm1
     BorderSpacing.Right = 4
     Caption = '- - -'
     ParentColor = False
-  end
-  object Panel1: TPanel
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 160
-    Height = 16
-    Top = 2
-    Width = 16
-    Anchors = [akTop, akRight]
-    BorderSpacing.Top = 2
-    BorderSpacing.Right = 2
-    Caption = 'x'
-    Color = clWhite
-    ParentColor = False
-    TabOrder = 2
-    Visible = False
-  end
-  object Panel2: TPanel
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Panel1
-    Left = 142
-    Height = 16
-    Top = 2
-    Width = 16
-    Anchors = [akTop, akRight]
-    BorderSpacing.Top = 2
-    BorderSpacing.Right = 2
-    Caption = '-'
-    Color = clWhite
-    ParentColor = False
-    TabOrder = 3
-    Visible = False
   end
   object Timer1: TTimer
     left = 26
